@@ -22,8 +22,8 @@
         return;
       }
       thisForm.querySelector('.loading').classList.add('d-block');
-      thisForm.querySelector('.error-message').classList.remove('d-block');
       thisForm.querySelector('.sent-message').classList.remove('d-block');
+      thisForm.querySelector('.error-message').classList.remove('d-block');
 
       let formData = new FormData( thisForm );
 
@@ -72,6 +72,7 @@
       }
     })
     .catch((error) => {
+      console.error('Error:', error); // Add this line to log errors
       displayError(thisForm, error);
     });
   }

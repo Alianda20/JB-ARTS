@@ -64,8 +64,7 @@
   <section id="hero" class="hero d-flex align-items-center section-bg">
     <div class="container">
       <div class="row justify-content-between gy-5">
-        <div
-          class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
           <h1 data-aos="fade-up">Crafted with Passion, Delivered with Care</h1>
           <p data-aos="fade-up" data-aos-delay="100">
             Explore Our Diverse Art Collection
@@ -73,8 +72,7 @@
         </div>
         {% for otherImages in otherImages %}
         <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
-          <img src="{{otherImages.image.url}}" class="img-fluid" alt="" data-aos="zoom-out"
-            data-aos-delay="300">
+          <img src="{{otherImages.image.url}}" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
         </div>
         {% endfor %}
       </div>
@@ -147,11 +145,7 @@
       </div>
     </section><!-- End Why Us Section -->
 
-
-
     <!-- ======= STORE SECTION ======= -->
-
-
     <section id="store" class="menu">
       <div class="container" data-aos="fade-up">
 
@@ -161,87 +155,72 @@
         </div>
 
         <ul class="nav nav-tabs d-flex justify-content-center" data-aos="fade-up" data-aos-delay="200">
-
           <li class="nav-item">
-            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-starters">
+            <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#menu-canvas">
               <h4>Canvas Paintings</h4>
             </a>
           </li><!-- End tab nav item -->
 
           <li class="nav-item">
-            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-breakfast">
+            <a class="nav-link" data-bs-toggle="tab" data-bs-target="#menu-bottle">
               <h4>Bottle Paintings</h4>
             </a><!-- End tab nav item -->
-
+          </li>
         </ul>
 
-
         <!-- CANVAS PAINTINGS -->
+<div class="tab-content" data-aos="fade-up" data-aos-delay="300">
+  <div class="tab-pane fade active show" id="menu-canvas">
+    <div class="tab-header text-center">
+      <h3>Canvas Paintings</h3>
+    </div>
+    <div class="row gy-5">
+      <!-- PRODUCTS -->
+      {% for canvas in canvas %}
+      <div class="col-lg-4 menu-item">
+        <a href="{{canvas.image.url}}" class="glightbox"><img src="{{canvas.image.url}}"
+            class="menu-img img-fluid" alt=""></a>
+        <h4>{{canvas.name}}</h4>
+        <p class="ingredients">
+          {{canvas.description}}
+        </p>
+        <p class="price">
+          Kshs. {{canvas.price}}
+        </p>
+        <button class="btn-order" data-image="{{canvas.image.url}}" data-price="{{canvas.price}}" data-name="{{canvas.name}}">ORDER</button>
+      </div><!-- End Menu Item -->
+      {% endfor %}
+    </div>
+  </div><!-- End Canvas Paintings -->
 
+  <!-- BOTTLE PAINTINGS -->
+  <div class="tab-pane fade" id="menu-bottle">
+    <div class="tab-header text-center">
+      <h3>Bottle Paintings</h3>
+    </div>
 
-        <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-
-          <div class="tab-pane fade active show" id="menu-starters">
-
-            <div class="tab-header text-center">
-              <h3>Canvas Paintings</h3>
-            </div>
-
-            <div class="row gy-5">
-
-              <!-- PRODUCTS -->
-              <!-- for loop -->
-
-              {% for canvas in canvas %}
-              <div class="col-lg-4 menu-item">
-                <a href="{{canvas.image.url}}" class="glightbox"><img src="{{canvas.image.url}}"
-                    class="menu-img img-fluid" alt=""></a>
-                <h4>{{canvas.name}}</h4>
-                <p class="ingredients">
-                  {{canvas.description}}
-                </p>
-                <p class="price">
-                  Kshs. {{canvas.price}}
-                </p>
-              </div>
-              {% endfor %}
-            </div>
-          </div>
-
-
-          <!-- BOTTLE PAINTINGS -->
-          <div class="tab-pane fade" id="menu-breakfast">
-
-            <div class="tab-header text-center">
-              <h3>Bottle Paintings</h3>
-            </div>
-
-            <div class="row gy-5">
-              <!-- BOTTLES -->
-              <!-- LOOP -->
-              {% for bottle in bottle %}
-              <div class="col-lg-4 menu-item">
-                <a href="{{bottle.image.url}}" class="glightbox"><img src="{{bottle.image.url}}"
-                    class="menu-img img-fluid" alt=""></a>
-                <h4>{{bottle.name}}</h4>
-                <p class="ingredients">
-                  {{bottle.description}}
-                </p>
-                <p class="price">
-                  Kshs. {{bottle.price}}
-                </p>
-              </div><!-- Menu Item -->
-              {% endfor %}
-            </div>
-          </div><!-- End Bottle Paintings Content -->
-
-        </div>
+    <div class="row gy-5">
+      {% for bottle in bottle %}
+      <div class="col-lg-4 menu-item">
+        <a href="{{bottle.image.url}}" class="glightbox"><img src="{{bottle.image.url}}"
+            class="menu-img img-fluid" alt=""></a>
+        <h4>{{bottle.name}}</h4>
+        <p class="ingredients">
+          {{bottle.description}}
+        </p>
+        <p class="price">
+          Kshs. {{bottle.price}}
+        </p>
+        <button class="btn-order" data-image="{{bottle.image.url}}" data-price="{{bottle.price}}" data-name="{{bottle.name}}">ORDER</button>
+      </div>
+      {% endfor %}
+    </div>
+  </div><!-- End Bottle Paintings -->
+</div><!-- End Tab Content -->
 
       </div>
     </section><!-- End Menu Section -->
-
-
-    <!-- ======= TESTIMONIALS SECTION ======= -->
+<!-- ======= TESTIMONIALS SECTION ======= -->
 
     <section id="testimonials" class="testimonials section-bg">
       <div class="container" data-aos="fade-up">
@@ -321,9 +300,7 @@
       </div>
     </section><!-- End Artists Section -->
 
-
-    <!-- ======= PLACE YOUR COMMISSION ======= -->
-
+    <!-- ======= Place Your Commission Section ======= -->
     <section id="book-a-table" class="book-a-table">
       <div class="container" data-aos="fade-up">
 
@@ -334,49 +311,33 @@
 
         <div class="row g-0">
 
-          <div class="col-lg-4 reservation-img" style="background-image: url('My Works/BottleCollection.jpg');"
-            data-aos="zoom-out" data-aos-delay="200"></div>
+          <div class="col-lg-4 reservation-img" id="reservation-img" data-aos="zoom-out" data-aos-delay="200"></div>
 
           <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-            <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up"
+            <form action="{% url 'home' %}" method="post" role="form" class="php-email-form" data-aos="fade-up"
               data-aos-delay="100">
+              {% csrf_token %}
               <div class="row gy-4">
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
-                    data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email"
-                    data-rule="email" data-msg="Please enter a valid email">
-                  <div class="validate"></div>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
                 </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone"
-                    data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Your Phone" required>
                 </div>
+                  <div class="col-lg-4 col-md-6">
+              <input type="text" class="form-control" name="product" id="product" placeholder="Product" readonly>
+            </div>
                 <div class="col-lg-4 col-md-6">
-                  <input type="text" name="date" class="form-control" id="date" placeholder="Date" data-rule="minlen:4"
-                    data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="text" class="form-control" name="time" id="time" placeholder="Time" data-rule="minlen:4"
-                    data-msg="Please enter at least 4 chars">
-                  <div class="validate"></div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <input type="number" class="form-control" name="people" id="people" placeholder="# of people"
-                    data-rule="minlen:1" data-msg="Please enter at least 1 chars">
-                  <div class="validate"></div>
+                  <input type="text" name="price" class="form-control" id="price" placeholder="Price" readonly>
                 </div>
               </div>
               <div class="form-group mt-3">
                 <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
-                <div class="validate"></div>
               </div>
-              <div class="mb-3">
+              <div class="my-3">
                 <div class="loading">Loading</div>
                 <div class="error-message"></div>
                 <div class="sent-message">Your commission request was sent. We will call back or send an Email to
@@ -384,16 +345,13 @@
               </div>
               <div class="text-center"><button type="submit">Make Your Order</button></div>
             </form>
-          </div><!-- End Commission Form -->
+          </div>
 
         </div>
 
       </div>
     </section><!--End Place Your Commission Section-->
-
-
-
-    <!-- ======= GALLERY SECTION ======= -->
+  </main>
 
     <section id="gallery" class="gallery section-bg">
       <div class="container" data-aos="fade-up">
@@ -414,10 +372,7 @@
         </div>
 
       </div>
-    </section><!-- End Gallery Section -->
-
-
-    <!-- ======= CONTACT SECTION ======= -->
+    </section>
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
 
@@ -446,7 +401,7 @@
                 <p>+254 790463858</p>
               </div>
             </div>
-          </div><!-- End Info Item -->
+          </div>
 
         </div>
 
@@ -477,15 +432,15 @@
       </div>
 
 
-    </section><!-- End Contact Section -->
+    </section>
 
-  </main><!-- End #main -->
+  </main>
 
   <!-- ======= Footer ======= -->
 
   <footer id="footer" class="footer">
 
-    <div class="container">
+    <div class="container text-center">
       <div class="row gy-3">
         <div class="col-lg-3 col-md-6 d-flex">
           <div class="copyright">
@@ -531,10 +486,8 @@
   </footer><!-- End Footer -->
   <!-- End Footer -->
 
-  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
       class="bi bi-arrow-up-short"></i></a>
-
-  <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
@@ -544,9 +497,32 @@
   <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
   <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
 
-
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const orderButtons = document.querySelectorAll('.btn-order');
+    const reservationImg = document.getElementById('reservation-img');
+    const priceInput = document.getElementById('price');
+    const productInput = document.getElementById('product');
+
+    orderButtons.forEach(button => {
+      button.addEventListener('click', function () {
+        const imageUrl = this.getAttribute('data-image');
+        const price = this.getAttribute('data-price');
+        const name = this.getAttribute('data-name');
+
+        reservationImg.style.backgroundImage = `url(${imageUrl})`;
+        priceInput.value = price;
+        productInput.value = name;
+
+        document.getElementById('book-a-table').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  });
+</script>
 
 </body>
 

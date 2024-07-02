@@ -51,3 +51,11 @@ class Message(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+class Order(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=15)
+    product = models.CharField(max_length=200)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    message = models.TextField()
+    ordered_at = models.DateTimeField(auto_now_add=True)

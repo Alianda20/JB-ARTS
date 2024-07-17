@@ -57,5 +57,5 @@ class Order(models.Model):
     phone = models.CharField(max_length=15)
     product = models.CharField(max_length=200)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    message = models.TextField()
+    address = models.CharField(max_length=200)
     ordered_at = models.DateTimeField(auto_now_add=True)

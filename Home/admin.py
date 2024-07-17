@@ -16,7 +16,7 @@ class MessageAdmin(admin.ModelAdmin):
     search_fields = ('name','email','subject','message')
     list_filter = ('created_at',)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone', 'product', 'price', 'message', 'ordered_at')
+    list_display = ('name', 'email', 'phone', 'product', 'price', 'address', 'ordered_at')
     search_fields = ('name', 'email', 'phone', 'product')
     list_filter = ('ordered_at', 'price')
 admin.site.register(Message, MessageAdmin)

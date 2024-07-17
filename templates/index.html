@@ -187,7 +187,7 @@
         <p class="price">
           Kshs. {{canvas.price}}
         </p>
-        <button class="btn-order" data-image="{{canvas.image.url}}" data-price="{{canvas.price}}" data-name="{{canvas.name}}">ORDER</button>
+        <button class="btn-order" data-image="{{canvas.image.url}}" data-price="{{canvas.price}}" data-name="{{canvas.name}}" href="checkout">ORDER</button>
       </div><!-- End Menu Item -->
       {% endfor %}
     </div>
@@ -211,7 +211,7 @@
         <p class="price">
           Kshs. {{bottle.price}}
         </p>
-        <button class="btn-order" data-image="{{bottle.image.url}}" data-price="{{bottle.price}}" data-name="{{bottle.name}}">ORDER</button>
+        <button class="btn-order" data-image="{{bottle.image.url}}" data-price="{{bottle.price}}" data-name="{{bottle.name}}" href="checkout">ORDER</button>
       </div>
       {% endfor %}
     </div>
@@ -314,7 +314,7 @@
           <div class="col-lg-4 reservation-img" id="reservation-img" data-aos="zoom-out" data-aos-delay="200"></div>
 
           <div class="col-lg-8 d-flex align-items-center reservation-form-bg">
-            <form action="{% url 'home' %}" method="post" role="form" class="php-email-form" data-aos="fade-up"
+            <form action="{% url 'home' %}" method="post" id="order" role="form" class="php-email-form" data-aos="fade-up"
               data-aos-delay="100">
               {% csrf_token %}
               <div class="row gy-4">
@@ -405,7 +405,7 @@
 
         </div>
 
-        <form action="{% url 'home' %}" method="post" role="form" class="php-email-form p-3 p-md-4">
+        <form action="{% url 'home' %}" method="post" role="form" class="php-email-form p-3 p-md-4" id="contact">
           {% csrf_token %}
             <div class="row">
             <div class="col-xl-6 form-group">
@@ -504,9 +504,6 @@
   <script>
   document.addEventListener('DOMContentLoaded', function () {
     const orderButtons = document.querySelectorAll('.btn-order');
-    const reservationImg = document.getElementById('reservation-img');
-    const priceInput = document.getElementById('price');
-    const productInput = document.getElementById('product');
 
     orderButtons.forEach(button => {
       button.addEventListener('click', function () {
@@ -514,15 +511,18 @@
         const price = this.getAttribute('data-price');
         const name = this.getAttribute('data-name');
 
-        reservationImg.style.backgroundImage = `url(${imageUrl})`;
-        priceInput.value = price;
-        productInput.value = name;
+        // Store product information in local storage
+        localStorage.setItem('reservationImage', imageUrl);
+        localStorage.setItem('price', price);
+        localStorage.setItem('product', name);
 
-        document.getElementById('book-a-table').scrollIntoView({ behavior: 'smooth' });
+        // Redirect to the checkout page
+        window.location.href = 'checkout.html';
       });
     });
   });
 </script>
+
 
 </body>
 
